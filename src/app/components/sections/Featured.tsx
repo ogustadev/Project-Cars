@@ -1,150 +1,165 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Container, SectionMarker, PillButton, Selo } from "../kit";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { useVehicles } from "../../context/VehiclesContext";
 import { formatBRL, whatsappUrl, vehicleWhatsappMsg } from "../../lib/site";
 
-const tabs = ["Exterior", "Interior", "Rodas", "Mecânica", "Documentação"];
-
 export function Featured() {
   const navigate = useNavigate();
   const { vehicles } = useVehicles();
-  const [tab, setTab] = useState(tabs[0]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Pega o primeiro veículo não pausado da coleção real
-  const v = vehicles.find((v) => !v.paused);
+  // Pegamos apenas os veículos que não estão pausados
+  const activeVehicles = vehicles.filter((v) => !v.paused);
 
-  if (!v) return null;
+  if (activeVehicles.length === 0) return null;
 
-  const spotlightSrc = v.featuredImage ?? v.images[0];
+  // Garante que o index não estoure caso o array mude
+  const currentIndex = activeIndex >= activeVehicles.length ? 0 : activeIndex;
+  const activeV = activeVehicles[currentIndex];
+  const spotlightSrc = activeV.featuredImage ?? activeV.images[0];
 
   return (
-    <section id="destaque" className="border-t border-white/[0.06] py-16 sm:py-24 lg:py-32">
+    <section id="destaque" className="py-16 sm:py-24 lg:py-32 bg-[#0c0c0d] min-h-[100svh] flex flex-col justify-center">
       <Container>
-        <SectionMarker index="02" label="Em destaque" />
-        <h2 className="mt-10 max-w-2xl font-display text-[2.25rem] font-light leading-[1.05] tracking-wide text-white sm:text-[3rem]">
-          Cada detalhe contado.
-          <br />
-          <span className="text-white/40">Cada procedência verificada.</span>
-        </h2>
-
-        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-
-          {/* ── spotlight photo — dark cinematic panel ── */}
-          <div className="group relative overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-b from-[#1a1a1a] to-[#050505]">
+        <SectionMarker index="02" label="Inventory" />
+        
+        <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-[1fr_380px] xl:gap-16">
+          
+          {/* ── Esquerda: Imagem Principal & Miniaturas ── */}
+          <div className="flex flex-col overflow-hidden">
             
-            {/* Spotlight Radial Glow atrás do carro */}
-            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent opacity-50 blur-2xl transition-opacity duration-700 group-hover:opacity-100" />
-
-            <div className="relative flex aspect-[16/10] items-center justify-center p-6 pb-20 sm:p-10 sm:pb-24">
-              <ImageWithFallback
-                src={spotlightSrc}
-                alt={`${v.brand} ${v.model} em destaque`}
-                className="relative z-10 w-4/5 object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-105"
-              />
-
-              {/* selo real do veículo */}
+            {/* Spotlight photo */}
+            <div className="relative flex aspect-[4/3] sm:aspect-[16/9] lg:aspect-[2/1] w-full items-center justify-center overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#161616] to-[#0a0a0a] border border-white/[0.03] p-8 sm:p-16 group/spotlight">
+              {/* Radial Glow Subtle */}
+              <div className="pointer-events-none absolute left-1/2 top-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-70 blur-3xl" />
+              
+              {/* Selo */}
               <div className="absolute left-6 top-6 z-20">
-                <Selo selo={v.selo} />
+                <Selo selo={activeV.selo} />
               </div>
 
-              {/* Feature badges overlaid using Glassmorphism */}
-              {v.highlights.length > 0 && (
-                <div className="absolute bottom-6 inset-x-0 z-20 flex w-full flex-wrap justify-center gap-3 px-6">
-                  {v.highlights.map((h) => (
-                    <span
-                      key={h}
-                      className="inline-flex cursor-default items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-mono text-[0.625rem] tracking-[0.06em] text-white/80 shadow-lg backdrop-blur-md transition-colors hover:border-white/20 hover:bg-white/10 hover:text-white"
-                    >
-                      <span className="relative flex h-1.5 w-1.5 shrink-0">
-                        <span className="absolute inline-flex h-full w-full animate-pulse rounded-full bg-amber-400 opacity-50" />
-                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]" />
-                      </span>
-                      {h}
-                    </span>
-                  ))}
-                </div>
-              )}
+              {/* Navigation Arrows */}
+              <button 
+                onClick={() => setActiveIndex((prev) => (prev === 0 ? activeVehicles.length - 1 : prev - 1))}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:bg-[#6ba5e0] hover:text-black hover:scale-110 group-hover/spotlight:opacity-100 sm:left-6"
+                aria-label="Veículo anterior"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+
+              <button 
+                onClick={() => setActiveIndex((prev) => (prev === activeVehicles.length - 1 ? 0 : prev + 1))}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white opacity-0 backdrop-blur-md transition-all duration-300 hover:bg-[#6ba5e0] hover:text-black hover:scale-110 group-hover/spotlight:opacity-100 sm:right-6"
+                aria-label="Próximo veículo"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+
+              <ImageWithFallback
+                key={activeV.id} // força re-render pra rodar transição se necessário
+                src={spotlightSrc}
+                alt={`${activeV.brand} ${activeV.model}`}
+                className="relative z-10 w-[90%] lg:w-[80%] object-contain drop-shadow-2xl animate-[fade-up_0.6s_ease_both]"
+              />
+            </div>
+
+            {/* Thumbnails Carousel */}
+            <div className="mt-6 flex gap-4 overflow-x-auto pb-4 hide-scrollbar">
+              {activeVehicles.map((v, idx) => {
+                const isActive = idx === currentIndex;
+                return (
+                  <button
+                    key={v.id}
+                    onClick={() => setActiveIndex(idx)}
+                    className={`relative flex h-20 w-32 sm:h-24 sm:w-36 shrink-0 items-center justify-center rounded-2xl border transition-all duration-300 overflow-hidden ${
+                      isActive
+                        ? "border-[#6ba5e0] bg-[#1a1a1a] shadow-[0_0_15px_rgba(107,165,224,0.15)]"
+                        : "border-white/5 bg-[#0a0a0a] hover:border-white/20 hover:bg-[#111111] opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <ImageWithFallback
+                      src={v.images[0]}
+                      alt={v.model}
+                      className="w-[85%] object-contain drop-shadow-lg"
+                    />
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* ── spec card — dark surface ── */}
-          <div className="flex flex-col">
-            <div className="flex flex-wrap items-baseline justify-between gap-3">
-              <h3 className="font-display text-[1.375rem] tracking-tight text-white">
-                {v.brand} {v.model}
-              </h3>
-              <span className="font-display text-[1.125rem] tracking-tight text-amber-400">
-                {v.price ? formatBRL(v.price) : "Sob consulta"}
-              </span>
-            </div>
-
-            {/* 2x2 Specs Grid */}
-            <div className="my-8 grid grid-cols-2 gap-4">
-              {/* Motor */}
-              <div className="rounded-xl border border-white/5 bg-white/[0.02] p-4 transition-colors hover:border-white/10 hover:bg-white/[0.04]">
-                <p className="mb-1 text-[10px] uppercase tracking-widest text-white/40">Motor</p>
-                <p className="text-sm font-medium text-white/90">{v.motor}</p>
-                <p className="mt-1 text-xs text-white/50">{v.potencia}</p>
+          {/* ── Direita: Informações & Especificações ── */}
+          <div className="flex flex-col justify-center">
+            
+            <div className="animate-[fade-up_0.5s_ease_both] flex flex-col justify-between">
+              <div className="h-[8.5rem] sm:h-[9.5rem] flex flex-col justify-start">
+                <h3 className="font-display text-[2rem] sm:text-[2.5rem] leading-[1.1] tracking-tight text-white mb-2 line-clamp-3">
+                  {activeV.brand} {activeV.model} <span className="text-white/40">{activeV.year}</span>
+                </h3>
+                
+                <p className="mb-8 text-[0.875rem] text-white/40">
+                  Disponível para visitação presencial no showroom.
+                </p>
               </div>
 
-              {/* Desempenho */}
-              <div className="rounded-xl border border-white/5 bg-white/[0.02] p-4 transition-colors hover:border-white/10 hover:bg-white/[0.04]">
-                <p className="mb-1 text-[10px] uppercase tracking-widest text-white/40">Vel. Máxima</p>
-                <p className="text-sm font-medium text-white/90">{v.velocidadeMax}</p>
-              </div>
-
-              {/* Transmissão */}
-              <div className="rounded-xl border border-white/5 bg-white/[0.02] p-4 transition-colors hover:border-white/10 hover:bg-white/[0.04]">
-                <p className="mb-1 text-[10px] uppercase tracking-widest text-white/40">Transmissão</p>
-                <p className="text-sm font-medium text-white/90">{v.carroceria}</p>
-                <p className="mt-1 text-xs text-white/50">{v.cambio}</p>
-              </div>
-
-              {/* Combustível */}
-              <div className="rounded-xl border border-white/5 bg-white/[0.02] p-4 transition-colors hover:border-white/10 hover:bg-white/[0.04]">
-                <p className="mb-1 text-[10px] uppercase tracking-widest text-white/40">Combustível</p>
-                <p className="text-sm font-medium text-white/90">{v.combustivel}</p>
-              </div>
-            </div>
-
-            {/* tab pills - Segmented Control Style */}
-            <div className="mb-4 inline-flex flex-wrap gap-1 rounded-full bg-white/5 p-1 self-start">
-              {tabs.map((t) => (
-                <button
-                  key={t}
-                  onClick={() => setTab(t)}
-                  className={`rounded-full px-4 py-1.5 text-[0.8125rem] transition-colors ${
-                    tab === t
-                      ? "bg-white/10 text-white shadow-sm"
-                      : "text-white/40 hover:text-white/80"
-                  }`}
+              <div className="mb-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between h-[4.5rem]">
+                <span className="font-display text-[2.5rem] font-medium tracking-tight text-white shrink-0">
+                  {activeV.price ? formatBRL(activeV.price) : "Sob consulta"}
+                </span>
+                
+                <PillButton
+                  icon={true}
+                  href={whatsappUrl(vehicleWhatsappMsg(activeV.brand, activeV.model))}
+                  target="_blank"
+                  className="w-full sm:w-auto px-8 !bg-[#6ba5e0] !text-neutral-950 hover:!bg-[#82b4e6]"
                 >
-                  {t}
-                </button>
-              ))}
+                  Solicitar proposta
+                </PillButton>
+              </div>
+            </div>
+
+            {/* Key Specifications Panel */}
+            <div className="rounded-[1.5rem] bg-[#111111] border border-white/5 p-6 animate-[fade-up_0.6s_ease_both]">
+              <h4 className="mb-6 font-display text-[1.125rem] text-white/80">Key Specifications</h4>
+              
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                {/* Engine */}
+                <div className="h-[4.5rem]">
+                  <p className="mb-1 text-[0.6875rem] font-mono uppercase tracking-widest text-white/30">Motor</p>
+                  <p className="text-[0.9375rem] font-medium text-white/90 line-clamp-2">{activeV.motor}</p>
+                  <p className="text-[0.75rem] text-white/50">{activeV.potencia}</p>
+                </div>
+                
+                {/* Max Speed */}
+                <div className="h-[4.5rem]">
+                  <p className="mb-1 text-[0.6875rem] font-mono uppercase tracking-widest text-white/30">Vel. Máxima</p>
+                  <p className="text-[0.9375rem] font-medium text-white/90">{activeV.velocidadeMax}</p>
+                </div>
+                
+                {/* Transmission */}
+                <div className="h-[4.5rem]">
+                  <p className="mb-1 text-[0.6875rem] font-mono uppercase tracking-widest text-white/30">Transmissão</p>
+                  <p className="text-[0.9375rem] font-medium text-white/90">{activeV.carroceria}</p>
+                  <p className="text-[0.75rem] text-white/50">{activeV.cambio}</p>
+                </div>
+                
+                {/* Fuel */}
+                <div className="h-[4.5rem]">
+                  <p className="mb-1 text-[0.6875rem] font-mono uppercase tracking-widest text-white/30">Combustível</p>
+                  <p className="text-[0.9375rem] font-medium text-white/90">{activeV.combustivel}</p>
+                </div>
+              </div>
             </div>
             
-            <p className="mb-7 text-[0.8125rem] leading-relaxed text-white/45">
-              Documentação de {tab.toLowerCase()} disponível para análise durante a visita
-              privada, incluindo registros fotográficos e laudo técnico independente.
-            </p>
-
-            <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <PillButton className="w-full sm:w-auto" onClick={() => navigate("/colecao")}>
-                Ver coleção completa
-              </PillButton>
-              <PillButton
-                className="w-full sm:w-auto"
-                variant="secondary"
-                icon={false}
-                href={whatsappUrl(vehicleWhatsappMsg(v.brand, v.model))}
-                target="_blank"
-              >
-                Solicitar proposta
-              </PillButton>
+            <div className="mt-8 self-start">
+               <button onClick={() => navigate("/colecao")} className="text-[0.875rem] text-white/40 hover:text-white transition-colors underline underline-offset-4 decoration-white/20">
+                 Ver inventário completo
+               </button>
             </div>
+
           </div>
         </div>
       </Container>
