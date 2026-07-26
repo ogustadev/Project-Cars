@@ -2,23 +2,31 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Container, SectionMarker, PillButton, Selo } from "../kit";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
-import { vehicles } from "../../data/vehicles";
+import { useVehicles } from "../../context/VehiclesContext";
 import { formatBRL, whatsappUrl, vehicleWhatsappMsg } from "../../lib/site";
 
 const tabs = ["Exterior", "Interior", "Rodas", "Mecânica", "Documentação"];
 
-const specs = [
-  { label: "Motor", value: "4.0L Boxer 6 aspirado · 525 cv · 0–100 em 3.2s" },
-  { label: "Velocidade máxima", value: "296 km/h" },
-  { label: "Transmissão", value: "Tração traseira · PDK 7 velocidades" },
-  { label: "Combustível", value: "13.6 / 8.9 L/100 km · Combinado · WLTP" },
-];
-
 export function Featured() {
   const navigate = useNavigate();
+  const { vehicles } = useVehicles();
   const [tab, setTab] = useState(tabs[0]);
-  const v = vehicles[0];
-  // Use the silver side-profile dedicated spotlight image
+
+  // Pega o primeiro veículo não pausado da coleção real
+  const v = vehicles.find((v) => !v.paused);
+
+  // Specs dinâmicos — construídos com os dados reais do veículo
+  const specs = v
+    ? [
+        { label: "Motor", value: `${v.motor} · ${v.potencia}` },
+        { label: "Velocidade máxima", value: v.velocidadeMax },
+        { label: "Transmissão", value: `${v.carroceria} · ${v.cambio}` },
+        { label: "Combustível", value: v.combustivel },
+      ]
+    : [];
+
+  if (!v) return null;
+
   const spotlightSrc = v.featuredImage ?? v.images[0];
 
   return (
@@ -45,12 +53,12 @@ export function Featured() {
               {/* subtle bottom fade into card body */}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#e8e9eb]/80 to-transparent" />
 
-              {/* selo */}
+              {/* selo real do veículo */}
               <div className="absolute left-5 top-5">
-                <Selo selo="RARO" />
+                <Selo selo={v.selo} />
               </div>
 
-              {/* annotation pins — light-panel-safe (dark badge) */}
+              {/* annotation pins from real highlights data */}
               {v.highlights.map((h, i) => (
                 <span
                   key={h}
@@ -76,8 +84,8 @@ export function Featured() {
               <h3 className="font-display text-[1.375rem] tracking-tight text-white">
                 {v.brand} {v.model}
               </h3>
-              <span className="font-display text-[1.125rem] tracking-tight text-[#6ba5e0]">
-                {formatBRL(v.price!)}
+              <span className="font-display text-[1.125rem] tracking-tight text-[#d4a84b]">
+                {v.price ? formatBRL(v.price) : "Sob consulta"}
               </span>
             </div>
 
