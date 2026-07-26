@@ -108,22 +108,27 @@ export function PillButton({
 }
 
 // Selos are displayed over light car-photo panels — needs opaque dark bg for contrast
-const seloStyles: Record<string, string> = {
-  RARO:             "border-[#6ba5e0]/60 text-[#6ba5e0]",
-  "ÚLTIMA UNIDADE": "border-red-400/60   text-red-300",
-  NOVO:             "border-emerald-500/60 text-emerald-400",
-  RESERVADO:        "border-white/30     text-white/70",
-  "EDIÇÃO LIMITADA":"border-[#6ba5e0]/60 text-[#6ba5e0]",
+const seloConfig: Record<string, { cls: string; glow: string; pulse: boolean }> = {
+  RARO:             { cls: "border-[#6ba5e0]/50 text-[#6ba5e0]",    glow: "shadow-[0_0_10px_rgba(107,165,224,0.3)]",  pulse: true  },
+  "ÚLTIMA UNIDADE": { cls: "border-red-400/50   text-red-300",       glow: "shadow-[0_0_10px_rgba(248,113,113,0.35)]", pulse: true  },
+  NOVO:             { cls: "border-emerald-500/50 text-emerald-400", glow: "shadow-[0_0_8px_rgba(52,211,153,0.25)]",   pulse: false },
+  RESERVADO:        { cls: "border-white/20     text-white/50",      glow: "",                                         pulse: false },
+  "EDIÇÃO LIMITADA":{ cls: "border-[#d4a84b]/50 text-[#d4a84b]",    glow: "shadow-[0_0_10px_rgba(212,168,75,0.3)]",  pulse: false },
 };
 
 export function Selo({ selo }: { selo: string | null }) {
   if (!selo) return null;
+  const cfg = seloConfig[selo] ?? { cls: "border-white/20 text-white/60", glow: "", pulse: false };
   return (
     <span
-      className={`inline-flex items-center rounded-full border bg-[#0c0c0d]/80 px-3 py-1 font-mono text-[0.625rem] uppercase tracking-[0.14em] backdrop-blur-md ${
-        seloStyles[selo] ?? "border-white/30 text-white"
-      }`}
+      className={`inline-flex items-center gap-1.5 rounded-full border bg-[#0c0c0d]/85 px-3 py-1 font-mono text-[0.5625rem] uppercase tracking-[0.14em] backdrop-blur-md ${cfg.cls} ${cfg.glow}`}
     >
+      {cfg.pulse && (
+        <span className="relative flex h-1.5 w-1.5 shrink-0">
+          <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-60 ${cfg.cls.includes("red") ? "bg-red-400" : cfg.cls.includes("6ba5") ? "bg-[#6ba5e0]" : "bg-emerald-400"}`} />
+          <span className={`relative inline-flex h-1.5 w-1.5 rounded-full ${cfg.cls.includes("red") ? "bg-red-400" : cfg.cls.includes("6ba5") ? "bg-[#6ba5e0]" : "bg-emerald-400"}`} />
+        </span>
+      )}
       {selo}
     </span>
   );

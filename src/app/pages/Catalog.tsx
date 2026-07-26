@@ -172,10 +172,10 @@ export function Catalog() {
             <button
               key={f}
               onClick={() => setQuick(f)}
-              className={`rounded-full border px-4 py-2 text-[0.8125rem] transition-colors ${
+              className={`rounded-full px-4 py-2 text-[0.8125rem] font-mono tracking-wide transition-all duration-300 ${
                 quick === f
-                  ? "border-white/30 bg-white/[0.06] text-foreground"
-                  : "border-border text-muted-foreground hover:text-foreground"
+                  ? "border border-[#6ba5e0]/40 bg-[#6ba5e0]/10 text-white shadow-[0_0_12px_rgba(107,165,224,0.2)]"
+                  : "border border-white/[0.07] text-white/40 hover:border-white/20 hover:text-white/70"
               }`}
             >
               {f}
