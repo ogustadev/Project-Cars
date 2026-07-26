@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router";
 import {
   Plus, Pencil, Trash2, PauseCircle, PlayCircle, Search, X,
@@ -12,6 +12,7 @@ import {
   categorias, carrocerias, cambios, combustiveis,
 } from "../data/vehicles";
 import { formatBRL } from "../lib/site";
+import { supabase } from "../lib/supabase";
 import imgLogin from "../../imports/Image__Porsche_911_GT3_RS_em_destaque_-1.png";
 
 // ── Design tokens — dark cinematic (matches public site) ─────────────────────
@@ -1128,10 +1129,6 @@ function AcervoView(ctx: ReturnType<typeof useVehicles>) {
   );
 }
 
-// ── Credentials (hardcoded — no backend per project design) ──────────────────
-const ADMIN_EMAIL = "admin@selectcars.com.br";
-const ADMIN_PASS  = "selectcars@2026";
-
 // ── Admin Login ───────────────────────────────────────────────────────────────
 function AdminLogin({ onLogin }: { onLogin: () => void }) {
   const [email, setEmail]       = useState("");
@@ -1141,26 +1138,25 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
   const [loading, setLoading]   = useState(false);
   const [shake, setShake]       = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
 
-    // Simulate a brief async check
-    setTimeout(() => {
-      if (
-        email.trim().toLowerCase() === ADMIN_EMAIL &&
-        password === ADMIN_PASS
-      ) {
-        onLogin();
-      } else {
-        setError("E-mail ou senha incorretos. Tente novamente.");
-        setPassword("");
-        setLoading(false);
-        setShake(true);
-        setTimeout(() => setShake(false), 500);
-      }
-    }, 600);
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    });
+
+    if (!error) {
+      onLogin();
+    } else {
+      setError("E-mail ou senha incorretos. Tente novamente.");
+      setPassword("");
+      setLoading(false);
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
+    }
   };
 
   return (
@@ -1393,7 +1389,31 @@ function AdminShell({ onLogout }: { onLogout: () => void }) {
 // ── Root export ───────────────────────────────────────────────────────────────
 export function Admin() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setLoggedIn(!!session);
+      setChecking(false);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setLoggedIn(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setLoggedIn(false);
+  };
+
+  if (checking) return null;
+
   return loggedIn
-    ? <AdminShell onLogout={() => setLoggedIn(false)} />
+    ? <AdminShell onLogout={handleLogout} />
     : <AdminLogin onLogin={() => setLoggedIn(true)} />;
 }
