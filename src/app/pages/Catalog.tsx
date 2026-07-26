@@ -97,22 +97,22 @@ export function Catalog() {
   const sidebar = (
     <div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
-        <h3 className="font-display text-[1rem] tracking-tight">Filtrar por</h3>
+        <h3 className="font-display text-[1rem] tracking-tight text-foreground">Filtrar por</h3>
         <button
           onClick={clearAll}
-          className="text-[0.8125rem] text-muted-foreground transition-colors hover:text-accent"
+          className="text-[0.8125rem] text-muted-foreground transition-colors hover:text-foreground"
         >
           Limpar
         </button>
       </div>
 
       <FilterGroup title="Disponibilidade">
-        <label className="flex cursor-pointer items-center gap-3 text-[0.875rem]">
+        <label className="flex cursor-pointer items-center gap-3 text-[0.875rem] text-foreground">
           <input
             type="checkbox"
             checked={onlyAvailable}
             onChange={(e) => setOnlyAvailable(e.target.checked)}
-            className="h-4 w-4 accent-[#6ba5e0]"
+            className="h-4 w-4 accent-foreground"
           />
           Apenas disponíveis para visita
         </label>
@@ -126,7 +126,7 @@ export function Catalog() {
           step={50000}
           value={maxPrice}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
-          className="w-full accent-[#6ba5e0]"
+          className="w-full accent-foreground"
         />
         <div className="mt-2 flex justify-between font-mono text-[0.6875rem] text-muted-foreground">
           <span>R$ 0</span>
@@ -153,7 +153,7 @@ export function Catalog() {
   );
 
   return (
-    <div className="pt-24 pb-24 lg:pt-28">
+    <div className="theme-light bg-background text-foreground min-h-screen pt-24 pb-24 lg:pt-28">
       <Container>
         {/* Header */}
         <div className="flex items-center gap-3">
@@ -162,7 +162,7 @@ export function Catalog() {
             Coleção · Showroom São Paulo
           </span>
         </div>
-        <h1 className="mt-6 font-display text-[2.5rem] leading-none tracking-[-0.02em] sm:text-[3.25rem]">
+        <h1 className="mt-6 font-display text-[2.5rem] leading-none tracking-[-0.02em] sm:text-[3.25rem] text-foreground">
           {vehicles.filter((v) => !v.paused).length} veículos no acervo
         </h1>
 
@@ -172,10 +172,10 @@ export function Catalog() {
             <button
               key={f}
               onClick={() => setQuick(f)}
-              className={`rounded-full px-4 py-2 text-[0.8125rem] font-mono tracking-wide transition-all duration-300 ${
+              className={`rounded-full border px-4 py-2 text-[0.8125rem] transition-colors ${
                 quick === f
-                  ? "border border-[#6ba5e0]/40 bg-[#6ba5e0]/10 text-white shadow-[0_0_12px_rgba(107,165,224,0.2)]"
-                  : "border border-white/[0.07] text-white/40 hover:border-white/20 hover:text-white/70"
+                  ? "border-foreground bg-foreground/5 text-foreground"
+                  : "border-border text-muted-foreground hover:text-foreground"
               }`}
             >
               {f}
@@ -191,23 +191,23 @@ export function Catalog() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Buscar marca, modelo ou cor"
-              className="w-full rounded-full border border-border bg-input px-11 py-3 text-[0.875rem] placeholder:text-muted-foreground focus:border-white/25 focus:outline-none"
+              className="w-full rounded-full border border-border bg-card px-11 py-3 text-[0.875rem] text-foreground placeholder:text-muted-foreground focus:border-foreground/20 focus:outline-none"
             />
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setMobileFilters(true)}
-              className="flex items-center gap-2 rounded-full border border-border px-4 py-3 text-[0.8125rem] lg:hidden"
+              className="flex items-center gap-2 rounded-full border border-border px-4 py-3 text-[0.8125rem] text-foreground lg:hidden"
             >
               <SlidersHorizontal className="h-4 w-4" /> Filtros
             </button>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="rounded-full border border-border bg-input px-4 py-3 text-[0.8125rem] text-foreground focus:border-white/25 focus:outline-none"
+              className="rounded-full border border-border bg-card px-4 py-3 text-[0.8125rem] text-foreground focus:border-foreground/20 focus:outline-none"
             >
               {sortOptions.map((o) => (
-                <option key={o.value} value={o.value} className="bg-background">
+                <option key={o.value} value={o.value} className="bg-card">
                   {o.label}
                 </option>
               ))}
@@ -237,11 +237,11 @@ export function Catalog() {
                 </div>
               </>
             ) : (
-              <div className="flex flex-col items-start gap-6 rounded-2xl border border-border bg-card p-10">
-                <h3 className="font-display text-[1.5rem] tracking-tight">
+              <div className="flex flex-col items-start gap-6 rounded-2xl border border-border bg-card p-10 shadow-sm">
+                <h3 className="font-display text-[1.5rem] tracking-tight text-foreground">
                   Nenhum veículo encontrado com esses filtros.
                 </h3>
-                <p className="max-w-lg text-[0.9375rem] leading-relaxed text-white/55">
+                <p className="max-w-lg text-[0.9375rem] leading-relaxed text-muted-foreground">
                   Fale diretamente com a loja — talvez tenhamos algo em processo de chegada ou
                   possamos buscar no mercado por você.
                 </p>
@@ -257,11 +257,11 @@ export function Catalog() {
       {/* Mobile filter drawer */}
       {mobileFilters && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setMobileFilters(false)} />
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setMobileFilters(false)} />
           <div className="absolute inset-y-0 left-0 w-[85%] max-w-sm overflow-y-auto border-r border-border bg-background p-6">
             <div className="mb-6 flex items-center justify-between">
-              <span className="font-display tracking-tight">Filtros</span>
-              <button onClick={() => setMobileFilters(false)} aria-label="Fechar">
+              <span className="font-display tracking-tight text-foreground">Filtros</span>
+              <button onClick={() => setMobileFilters(false)} aria-label="Fechar" className="text-foreground">
                 <X className="h-5 w-5" />
               </button>
             </div>
@@ -298,14 +298,14 @@ function CheckList({
   return (
     <div className="flex flex-col gap-2.5">
       {options.map((o) => (
-        <label key={o} className="flex cursor-pointer items-center gap-3 text-[0.875rem]">
+        <label key={o} className="flex cursor-pointer items-center gap-3 text-[0.875rem] text-foreground">
           <input
             type="checkbox"
             checked={selected.includes(o)}
             onChange={() => onToggle(o)}
-            className="h-4 w-4 accent-[#6ba5e0]"
+            className="h-4 w-4 accent-foreground"
           />
-          <span className={selected.includes(o) ? "text-white" : "text-white/50"}>{o}</span>
+          <span className={selected.includes(o) ? "text-foreground font-medium" : "text-muted-foreground"}>{o}</span>
         </label>
       ))}
     </div>
@@ -329,7 +329,7 @@ function ChipList({
           onClick={() => onToggle(o)}
           className={`rounded-full border px-3 py-1.5 text-[0.75rem] transition-colors ${
             selected.includes(o)
-              ? "border-accent/50 bg-accent/10 text-accent"
+              ? "border-foreground bg-foreground/5 text-foreground"
               : "border-border text-muted-foreground hover:text-foreground"
           }`}
         >

@@ -25,7 +25,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="processo" className="border-t border-border py-16 sm:py-24 lg:py-32">
+    <section id="processo" className="theme-light bg-background text-foreground py-16 sm:py-24 lg:py-32 min-h-[100svh] flex flex-col justify-center">
       <Container>
         <SectionMarker index="05" label="O processo" />
         <div className="mt-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
@@ -36,7 +36,7 @@ export function Process() {
             04 etapas · 1 padrão
           </span>
         </div>
-        <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-white/55">
+        <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-muted-foreground">
           Quatro etapas pensadas para entregar previsibilidade, transparência e o tempo adequado para
           cada decisão importante.
         </p>
@@ -48,8 +48,8 @@ export function Process() {
                 <span className="font-display text-[1.75rem] tracking-tight text-accent">{s.n}</span>
                 <span className="h-px flex-1 bg-border" />
               </div>
-              <h3 className="font-display text-[1.125rem] tracking-tight">{s.title}</h3>
-              <p className="text-[0.875rem] leading-relaxed text-white/55">{s.text}</p>
+              <h3 className="font-display text-[1.125rem] tracking-tight text-foreground">{s.title}</h3>
+              <p className="text-[0.875rem] leading-relaxed text-muted-foreground">{s.text}</p>
             </div>
           ))}
         </div>

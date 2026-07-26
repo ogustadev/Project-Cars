@@ -28,7 +28,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicos" className="border-t border-border py-16 sm:py-24 lg:py-32">
+    <section id="servicos" className="py-16 sm:py-24 lg:py-32 bg-[#0c0c0d] min-h-[100svh] flex flex-col justify-center">
       <Container>
         <div className="flex items-start justify-between gap-4">
           <div>

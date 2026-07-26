@@ -24,7 +24,7 @@ const info = [
 export function Contact() {
   const navigate = useNavigate();
   return (
-    <section id="contato" className="border-t border-border py-16 sm:py-24 lg:py-32">
+    <section id="contato" className="py-16 sm:py-24 lg:py-32 bg-[#0c0c0d] min-h-[100svh] flex flex-col justify-center">
       <Container>
         <SectionMarker index="07" label="Próximo passo" />
         <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr]">

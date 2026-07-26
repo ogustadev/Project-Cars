@@ -28,7 +28,7 @@ const faqs = [
 export function FAQ() {
   const [open, setOpen] = useState(0);
   return (
-    <section id="perguntas" className="border-t border-border py-16 sm:py-24 lg:py-32">
+    <section id="perguntas" className="theme-light bg-background text-foreground py-16 sm:py-24 lg:py-32 min-h-[100svh] flex flex-col justify-center">
       <Container>
         <SectionMarker index="—" label="Perguntas frequentes" />
         <h2 className="mt-10 font-display text-[2.25rem] leading-[1.05] tracking-[-0.02em] sm:text-[3rem]">
@@ -42,7 +42,7 @@ export function FAQ() {
               <div key={f.q}>
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="flex w-full items-center gap-6 py-6 text-left"
+                  className="flex w-full items-center gap-6 py-6 text-left hover:opacity-70 transition-opacity"
                 >
                   <span className="font-mono text-[0.8125rem] text-accent">
                     {String(i + 1).padStart(2, "0")}
@@ -60,7 +60,7 @@ export function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="max-w-3xl pl-[2.6rem] text-[0.9375rem] leading-relaxed text-white/55">
+                    <p className="max-w-3xl pl-[2.6rem] text-[0.9375rem] leading-relaxed text-muted-foreground">
                       {f.a}
                     </p>
                   </div>

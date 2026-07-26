@@ -98,6 +98,26 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+.theme-light {
+  --background: #f9fafb;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #111111;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #111111;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #6ba5e0;
+  --accent-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.08);
+  --ring: rgba(107, 165, 224, 0.6);
+}
+
 @theme inline {
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
@@ -234,6 +254,17 @@
     50% {
       transform: translateY(5px);
       opacity: 1;
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
     }
   }
 

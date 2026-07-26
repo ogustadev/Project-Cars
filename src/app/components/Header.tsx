@@ -158,10 +158,10 @@ export function Header() {
 
           <Link
             to="/admin"
-            className="hidden items-center gap-1.5 rounded-full px-3.5 py-1.5 font-mono text-[0.5625rem] uppercase tracking-[0.12em] text-white/30 transition-all hover:text-white/60 sm:flex"
+            className="hidden items-center justify-center gap-1.5 rounded-full px-5 h-11 font-mono text-[0.625rem] uppercase tracking-[0.12em] text-white/40 transition-all hover:border-white/20 hover:text-white/80 sm:flex"
             style={{ border: "1px solid rgba(255,255,255,0.08)" }}
           >
-            <Lock className="h-3 w-3" />
+            <Lock className="h-3.5 w-3.5" />
             Admin
           </Link>
 

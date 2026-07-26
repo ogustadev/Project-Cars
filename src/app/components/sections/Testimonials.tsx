@@ -23,7 +23,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="clientes" className="border-t border-border py-16 sm:py-24 lg:py-32">
+    <section id="clientes" className="py-16 sm:py-24 lg:py-32 bg-[#0c0c0d] min-h-[100svh] flex flex-col justify-center">
       <Container>
         <SectionMarker index="06" label="Clientes" />
         <h2 className="mt-10 max-w-2xl font-display text-[2.25rem] leading-[1.05] tracking-[-0.02em] sm:text-[3rem]">

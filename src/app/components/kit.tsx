@@ -70,12 +70,12 @@ export function PillButton({
   target,
 }: ButtonProps) {
   const base =
-    "group inline-flex max-w-full items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-[0.9375rem] leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60";
+    "group inline-flex max-w-full items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 h-11 text-[0.9375rem] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60";
   const styles = {
     primary:
       "bg-white text-neutral-900 hover:bg-white/85 font-[500]",
     secondary:
-      "border border-border text-foreground hover:border-accent/60 hover:bg-accent/[0.06]",
+      "border border-accent/40 text-foreground hover:border-accent hover:bg-accent/[0.08]",
     ghost: "text-foreground hover:text-accent",
   }[variant];
 
