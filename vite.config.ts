@@ -33,4 +33,27 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
+
+  build: {
+    // Suprime o warning de chunk size (aumentado para acomodar UI libs pesadas)
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        // Code splitting manual: separa vendors pesados em chunks próprios
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router'],
+          'vendor-ui': [
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-select',
+            '@radix-ui/react-tabs',
+            '@radix-ui/react-tooltip',
+          ],
+          'vendor-motion': ['motion'],
+          'vendor-charts': ['recharts'],
+          'vendor-supabase': ['@supabase/supabase-js'],
+        },
+      },
+    },
+  },
 })
