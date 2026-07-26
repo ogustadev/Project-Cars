@@ -92,7 +92,7 @@ export function Catalog() {
       }
     });
     return list;
-  }, [quick, onlyAvailable, maxPrice, selBrands, selBody, selCambio, selFuel, search, sort]);
+  }, [vehicles, quick, onlyAvailable, maxPrice, selBrands, selBody, selCambio, selFuel, search, sort]);
 
   const sidebar = (
     <div className="flex flex-col gap-8">
