@@ -1,0 +1,818 @@
+Nós vamos criar agora um site com base nas referências em anexo que vão servir apenas como referências visuais mas eu quero que você siga o design system que está logo abaixo. Quero que você siga o conteúdo do site que eu também coloquei abaixo. A stack que a gente quer utilizar é o React Tailwind para a gente construir esse sistema. Então eu preciso que você utilize toda a força do Mega Brain para ter um resultado excelente nesse primeiro prompt. 
++ conteúdo 
++ Design system
++ Imagens anexo
+
+Conteúdo Landing Page
+SelectCars — Conteúdo do Site
+
+│ Observação: os veículos, preços, quilometragens e cores usados abaixo são mock/exemplo. O conteúdo é dinâmico e será alimentado pelo Painel do Lojista.
+
+────────────────────────────────────────
+
+Header (fixo, todas as páginas)
+
+Logo: SELECTCARS
+
+Navegação: Início · Sobre · Coleção · Destaque · Processo · Perguntas
+
+Ações: Buscar · Agendar visita (botão)
+
+────────────────────────────────────────
+
+1. Home / Site Institucional
+
+1.1 Hero
+
+Selo superior: — 2026 / Edição 01
+
+Headline:
+Curadoria de automóveis raros, esportivos e de coleção para quem entende a diferença entre possuir e pertencer.
+
+Título principal:
+Carros que não se encontram.
+Se reconhecem.
+
+Card do veículo em destaque (mock):
+• Selo: RARO
+• Selo: 2026 · Edição limitada
+• Modelo: Porsche 911 GT3 RS · 2024
+• Detalhe: Branco Carrara · 1.200 km
+• CTA: Ver coleção
+• Indicador: 01 / 04
+Faixa de contato:
++55 11 0000-0000 · São Paulo · Atendimento sob agendamento
+
+Marcas em destaque (carrossel):
+Porsche · Ferrari · Lamborghini · Aston Martin · Bentley · McLaren
+
+────────────────────────────────────────
+
+1.2 Sobre (01 / Sobre)
+
+Título:
+Não vendemos carros.
+Entregamos exceções.
+
+Indicador estatístico:
+5%
+Percentual de carros avaliados que chegam ao showroom.
+
+Texto de apoio:
+A SELECTCARS nasceu da convicção de que um carro extraordinário merece um processo à altura. Cada veículo no nosso showroom passou por uma seleção criteriosa: procedência verificada, histórico documentado, condição mecânica e estética dentro de padrões que não admitem concessões.
+
+Trabalhamos com um número limitado de unidades por mês. Por escolha. Porque atender bem importa mais do que vender muito.
+
+CTA: Conheça o processo →
+
+Timeline (eras representadas no acervo):
+1960 · 1970 · 1980 · 1990 · 2000 · 2010
+
+Selo lateral: SP · BR
+
+Três princípios:
+
+1. Procedência
+Cada veículo é rastreado desde o primeiro proprietário. Documentação completa, histórico de manutenção e laudo técnico independente.
+2. Curadoria
+Selecionamos menos de 5% dos carros que avaliamos. O que entra no nosso showroom precisa ter algo além de preço alto.
+3. Discrição
+Atendimento privado, agendado, sem vitrine de rua. O processo de compra é tão exclusivo quanto o carro.
+────────────────────────────────────────
+
+1.3 Veículo em Destaque (02 / Em destaque)
+
+Título:
+Cada detalhe contado.
+Cada procedência verificada.
+
+Ficha do veículo (mock):
+• Modelo: Porsche 911 GT3 RS
+• Valor: R$ 2.890.000
+Especificações rápidas:
+| Campo | Valor |
+|---|---|
+| Motor | 4.0L Boxer 6 aspirado · 525 cv · 0–100 km/h em 3.2s |
+| Velocidade máxima | 296 km/h |
+| Transmissão | Tração traseira · PDK 7 velocidades |
+| Combustível | 13.6 / 8.9 L/100 km · Combinado · WLTP |
+
+Abas da ficha técnica:
+Exterior · Interior · Rodas · Mecânica · Documentação
+
+Anotações sobre a imagem (destaques do veículo):
+• Aero kit Weissach
+• Teto em magnésio
+• Rodas forjadas 20"
+• Bancos em fibra de carbono
+CTAs: Ver coleção completa · Solicitar proposta
+
+────────────────────────────────────────
+
+1.4 Coleção / Showroom (03 / Coleção)
+
+Título:
+Disponíveis no showroom.
+
+Subtítulo:
+Uma seleção atualizada semanalmente. Para a coleção completa, agende uma visita privada.
+
+Filtros (pills):
+Todos · Esportivos · Clássicos · SUV Premium · Edições limitadas · Recém-chegados
+
+CTA: Ver coleção completa
+
+Cards de veículo (mock — grid):
+
+| Marca / Modelo | Ano · KM · Cor | Selo | Descrição curta | Preço | CTA |
+|---|---|---|---|---|---|
+| Porsche 911 GT3 RS | 2024 · 1.200 km · Branco Carrara | RARO | Aero kit Weissach, bancos em carbono e procedência impecável de primeiro dono. | R$ 2.890.000 | Ver detalhes |
+| Ferrari 296 GTB | 2023 · 3.400 km · Rosso Corsa | ÚLTIMA UNIDADE | V6 híbrido turbinado, 830 cv combinados. Histórico completo e revisão oficial. | Sob consulta | Ver detalhes |
+| Lamborghini Huracán Tecnica | 2024 · 800 km · Verde Mantis | NOVO | V10 aspirado, dinâmica de pista, configuração específica para a unidade. | R$ 3.450.000 | Ver detalhes |
+| Mercedes-AMG GT 63 S | 2023 · 5.100 km · Preto Obsidiana | — | Quatro portas com motor 4.0 V8 biturbo. Acabamento Designo e laudo independente. | R$ 1.690.000 | Ver detalhes |
+| Aston Martin DB12 | 2024 · 1.500 km · British Racing Green | RESERVADO | GT inglês com 680 cv. Couro Bridge of Weir e detalhes em alumínio escovado. | Sob consulta | Ver detalhes |
+| Bentley Continental GT Speed | 2023 · 6.800 km · Orange Flame | — | GT de 12 cilindros, interior em couro Mulliner, presença para qualquer agenda. | R$ 2.150.000 | Ver detalhes |
+
+Bloco "não encontrou o que procura":
+
+Título: Não encontrou o que procura?
+
+Texto: Para modelos específicos, edições limitadas ou unidades em outros estados, compartilhe o que você procura. Buscamos no mercado interno e internacional.
+
+CTAs: Falar com um curador · Ver coleção completa
+
+────────────────────────────────────────
+
+1.5 Serviços (04 / Serviços)
+
+Título:
+Para além da venda.
+
+Subtítulo:
+Estrutura completa para clientes que veem o automóvel como patrimônio e não como mero objeto de consumo.
+
+Serviço 1 — Consignação Premium
+Vendemos o seu carro do jeito que ele merece ser apresentado.
+• Avaliação justa — Laudo técnico independente
+• Rede qualificada — Compradores verificados
+• Apresentação editorial — Fotografia · vídeo · ficha
+• Discrição total — Sem exposição em vitrine
+Serviço 2 — Sourcing Internacional
+Procura ativa de modelos específicos no mercado europeu, americano e asiático. Importação completa com toda a documentação regularizada.
+
+Serviço 3 — Gestão de Coleção
+Patrimônio merece estrutura à altura.
+Climatização · Manutenção · Documentação
+
+Selo lateral: Edição rara · Acervo SELECTCARS
+
+Bloco de citação/destaque:
+COMPRAR UM CARRO DEVERIA SER TÃO REFINADO QUANTO DIRIGI-LO.
+
+Sem pressa, sem ruído, sem cláusulas escondidas. Cada etapa do processo SELECTCARS é desenhada para que você reconheça o carro certo e nunca seja empurrado para nenhum.
+
+────────────────────────────────────────
+
+1.6 Processo (05 / O processo)
+
+Título:
+Comprar um carro deveria ser
+tão refinado quanto dirigi-lo.
+
+Subtítulo:
+Quatro etapas pensadas para entregar previsibilidade, transparência e o tempo adequado para cada decisão importante.
+
+Etapas (carrossel/stepper):
+
+1. Conversa inicial
+Entendimento do perfil, preferências e uso pretendido do cliente.
+2. Curadoria personalizada
+Apresentamos opções do nosso estoque ou buscamos no mercado interno e internacional o carro exato que você procura. Cada candidato é avaliado antes de chegar até você.
+3. Inspeção e documentação
+Laudo técnico independente, verificação de procedência e regularização documental completa.
+4. Entrega
+Entrega assistida, com toda a documentação e histórico organizados.
+Indicador: 04 etapas · 1 padrão
+
+────────────────────────────────────────
+
+1.7 Depoimentos (06 / Clientes)
+
+Título:
+O que nos define é
+quem confia em nós.
+
+Depoimento 1
+"Procurei um Porsche específico por dois anos antes de chegar à SELECTCARS. Em três semanas eles encontraram a unidade certa, na cor certa, com o histórico certo. Atendimento de outro nível."
+— R. M., Empresário · São Paulo
+
+Depoimento 2
+"O que mais me impressionou foi a discrição. Comprei dois carros pela SELECTCARS e em nenhum momento me senti um número. O processo é silencioso, preciso e respeita o seu tempo."
+— C. A., Investidor · Rio de Janeiro
+
+Depoimento 3
+"Já tive experiências ruins comprando importados. Aqui foi diferente desde o primeiro contato. Eles realmente entendem o produto e tratam o carro como peça, não como estoque."
+— F. L., Colecionador · Belo Horizonte
+
+────────────────────────────────────────
+
+1.8 Perguntas Frequentes (— Perguntas frequentes)
+
+Título:
+Antes de agendar.
+
+01. Como funciona o processo de compra na SELECTCARS?
+Tudo começa com uma conversa privada para entender seu perfil, preferências e o uso pretendido. A partir daí podemos:
+• Apresentar opções do nosso estoque atual no showroom
+• Buscar no mercado interno e internacional o carro exato que você procura
+• Conduzir todo o processo: laudo técnico, documentação, transferência e entrega
+02. Vocês fazem importação de modelos específicos?
+(conteúdo a definir com o cliente)
+
+03. Como funciona a consignação?
+(conteúdo a definir com o cliente)
+
+04. Posso financiar a compra?
+(conteúdo a definir com o cliente)
+
+05. Vocês entregam fora de São Paulo?
+(conteúdo a definir com o cliente)
+
+────────────────────────────────────────
+
+1.9 CTA Final / Contato (07 / Próximo passo)
+
+Título:
+Encontre o seu próximo.
+Ou o que você ainda não sabia que era o seu.
+
+Texto:
+Seja para uma compra específica, uma consignação ou uma conversa sobre o que faz sentido para o seu momento — estamos disponíveis. Atendimento privado, sob agendamento.
+
+CTAs: Falar com um curador · Ver coleção
+
+Bloco: Agendar visita ao showroom
+
+Subtítulo: Compartilhe o que você procura. Respondemos no mesmo dia útil.
+
+Campos exibidos (não é formulário de captação — vide observação abaixo):
+• Nome completo
+• E-mail
+• WhatsApp (DDD + número)
+• Conte um pouco sobre o que procura (modelo, ano, faixa de valor)
+Botão: Enviar mensagem
+
+Nota: Resposta em até 1 dia útil · Atendimento confidencial
+
+│ ⚠️ Atenção ao briefing técnico: o documento de requisitos original define explicitamente "sem formulários de captação nem CRM" e "fora de escopo: formulários de contato/agendamento com captação de lead". O PDF de referência visual traz um bloco de formulário nesta seção — ele deve ser substituído por um CTA direto para WhatsApp (com mensagem pré-preenchida), mantendo apenas a exibição dos dados de contato, para respeitar o escopo definido.
+
+Informações de contato exibidas:
+• Showroom: São Paulo, SP — Endereço completo enviado no agendamento
+• Horário: Seg a sex · 10h às 19h — Sábado · 10h às 14h, sempre por agendamento
+• Contato direto: +55 11 0000-0000 · contato@selectcars.com.br
+────────────────────────────────────────
+
+1.10 Footer
+
+Sobre:
+SELECTCARS — Curadoria de automóveis premium para o colecionador exigente. Atemporal. Discreta. Inconfundível.
+São Paulo · Brasil
+
+Navegação: Coleção · Marcas · Serviços · Sobre · Contato
+
+Serviços: Sourcing internacional · Consignação premium · Gestão de coleção · Financiamento e seguro
+
+Contato:
++55 11 0000-0000
+contato@selectcars.com.br
+Endereço enviado no agendamento
+
+Redes sociais: Instagram · LinkedIn · WhatsApp
+
+Rodapé legal:
+© 2026 SELECTCARS — Todos os direitos reservados · Política de privacidade · Termos de uso · Cookies
+
+────────────────────────────────────────
+
+2. Página de Catálogo (Coleção)
+
+2.1 Cabeçalho da página
+
+Breadcrumb: — Coleção · Showroom São Paulo
+
+Título: 9 veículos no acervo (contador dinâmico)
+
+Filtros rápidos (pills):
+Todos · Esportivos · Clássicos · SUV Premium · Edições limitadas · Recém-chegados
+
+Busca: "Buscar marca, modelo ou cor"
+
+Ordenação: Recém-chegados ↓ (opções: Recém-chegados, Menor preço, Maior preço, Menor km)
+
+────────────────────────────────────────
+
+2.2 Sidebar de Filtros
+
+Título: Filtrar por
+Ação: Limpar
+
+Disponibilidade:
+☐ Apenas disponíveis para visita
+
+Faixa de valor:
+Slider: R$ 0 até R$ 3.450.000 (valores dinâmicos conforme acervo)
+
+Marca (multi-seleção):
+Porsche · Ferrari · Lamborghini · Mercedes-AMG · Aston Martin · Bentley · BMW · Jaguar · Range Rover
+
+Carroceria:
+Coupé · Sedan · GT · Conversível · SUV
+
+Câmbio:
+PDK · DCT · Automático
+
+Combustível:
+Gasolina · Híbrido
+
+────────────────────────────────────────
+
+2.3 Grid de Veículos (mock)
+
+| Marca / Modelo | Especificações | Selo | Preço | CTA |
+|---|---|---|---|---|
+| Porsche 911 GT3 RS | 2024 · Coupé · PDK · Gasolina · 1.200 km · Branco Carrara | RARO | R$ 2.890.000 | Ver detalhes → |
+| Ferrari 296 GTB | 2023 · Coupé · DCT · Híbrido · 3.400 km · Rosso Corsa | ÚLTIMA UNIDADE | Sob consulta | Ver detalhes → |
+| Lamborghini Huracán Tecnica | 2024 · Coupé · DCT · Gasolina · 800 km · Verde Mantis | NOVO | R$ 3.450.000 | Ver detalhes → |
+| Mercedes-AMG GT 63 S | 2023 · Sedan · Automático · Gasolina · 5.100 km · Preto Obsidiana | — | R$ 1.690.000 | Ver detalhes → |
+| Aston Martin DB12 | 2024 · GT · Automático · Gasolina · 1.500 km · British Racing Green | RESERVADO | Sob consulta | Ver detalhes → |
+| Bentley Continental GT Speed | 2023 · GT · Automático · Gasolina · 6.800 km · Orange Flame | — | R$ 2.150.000 | Ver detalhes → |
+| BMW M5 Competition | 2024 · Sedan · Automático · Gasolina · 2.800 km · Cinza Brooklyn | NOVO | R$ 1.290.000 | Ver detalhes → |
+| Jaguar F-Type R75 | 2023 · Conversível · Automático · Gasolina · 4.200 km · Azul Velocity | — | R$ 980.000 | Ver detalhes → |
+| Range Rover SV Autobiography | 2024 · SUV · Automático · Híbrido · 3.200 km · Belgravia Green | — | R$ 1.890.000 | Ver detalhes → |
+
+Paginação: Exibindo 1–9 de 9 · 01 / 01
+
+Estado vazio (quando filtro não retorna resultado):
+
+Título: Nenhum veículo encontrado com esses filtros.
+
+Texto: Fale diretamente com a loja — talvez tenhamos algo em processo de chegada ou possamos buscar no mercado por você.
+
+CTA: Falar no WhatsApp
+
+────────────────────────────────────────
+
+2.4 Painel de Detalhes do Veículo (drawer lateral)
+
+Estrutura (mock — Porsche 911 GT3 RS):
+
+• Imagem em destaque com marca d'água tipográfica "PORSCHE" e badge RARO
+• Categoria: Esportivo
+• Marca / Modelo: Porsche 911 GT3 RS
+• Ano · KM · Cor: 2024 · 1.200 km · Branco Carrara
+Descrição curta:
+Aero kit Weissach, bancos em fibra de carbono e procedência impecável de primeiro dono.
+
+Especificações rápidas:
+| Campo | Valor |
+|---|---|
+| Motor / Potência | 4.0L Boxer 6 · 525 cv |
+| Velocidade máxima | 296 km/h |
+| Câmbio | PDK 7 velocidades |
+| Combustível | Gasolina |
+
+Destaques do veículo:
+• Aero kit Weissach completo
+• Teto em magnésio
+• Rodas forjadas 20"
+• Bancos em fibra de carbono
+Bloco de valor:
+R$ 2.890.000
+Disponível para visita
+
+CTA:
+Falar sobre este veículo no WhatsApp
+(mensagem pré-preenchida: "Olá, gostaria de saber mais sobre o Porsche 911 GT3 RS")
+
+────────────────────────────────────────
+
+3. Contato via WhatsApp — Regras de Conteúdo
+
+• Todo CTA de contato do site aponta para wa.me/[numero] ou api.whatsapp.com
+• Mensagem contextual (quando parte de um veículo): "Olá, gostaria de saber mais sobre o [Marca] [Modelo]"
+• Mensagem genérica (quando parte de CTA institucional): "Olá, gostaria de falar com um curador da SELECTCARS."
+• Dados de contato diretos sempre visíveis no footer e na seção final da home, para quem preferir outro canal
+• Não há etapa intermediária de formulário nem armazenamento de lead em CRM
+────────────────────────────────────────
+
+4. Painel do Lojista — Conteúdo de Interface
+
+4.1 Tela principal
+
+Título: Veículos cadastrados
+
+Botão em destaque: + Novo veículo
+
+Busca: "Buscar por marca, modelo ou status"
+
+Colunas da tabela:
+Foto · Marca / Modelo · Data de cadastro · Preço · Status (Publicado / Pausado / Rascunho) · Selo · Ações (Editar · Excluir · Pausar/Reativar)
+
+4.2 Formulário de Cadastro/Edição de Veículo
+
+Seção — Identificação:
+Marca · Modelo · Versão/Trim · Ano de fabricação/modelo · Cor (nome comercial)
+
+Seção — Dados de uso:
+Quilometragem · Número de donos · Procedência (histórico resumido)
+
+Seção — Classificação:
+Categoria (Esportivos / Clássicos / SUV Premium / Edições Limitadas / Recém-chegados) · Carroceria (Coupé / Sedan / GT / Conversível / SUV)
+
+Seção — Ficha técnica:
+Motor/Potência (cv) · Velocidade máxima · Câmbio (PDK / DCT / Automático) · Combustível (Gasolina / Híbrido)
+
+Seção — Comercial:
+Preço (ou "Sob consulta") · Disponibilidade para visita
+
+Seção — Selos/tags:
+Raro · Última unidade · Novo · Edição limitada (seleção múltipla)
+
+Seção — Destaques do veículo:
+Lista editável de itens (ex.: "Aero kit Weissach completo", "Bancos em fibra de carbono")
+
+Seção — Documentação:
+Upload de laudo técnico independente e demais documentos de procedência (opcional)
+
+Seção — Mídia:
+Upload de galeria de fotos (múltiplas imagens, definição de capa) e vídeos
+
+Ações: Salvar · Salvar como rascunho · Cancelar
+
+Mensagens de feedback:
+• Sucesso ao salvar: "Veículo salvo com sucesso."
+• Sucesso ao pausar: "Veículo pausado. Ele não aparece mais no site público."
+• Sucesso ao excluir: "Veículo removido definitivamente."
+• Erro de validação: "Verifique os campos obrigatórios destacados."
+
+Extração referência Design system - Antigravity
+# Design System — Plataforma Automotiva de Luxo
+
+---
+
+## 1. Conceito e Estilo
+
+Uma linguagem de design enraizada em **luxo contido** e **precisão de engenharia**. O sistema opera em dois modos de superfície dominantes — um tema claro luminoso, com aspecto de galeria, e um tema escuro imersivo e cinematográfico — unificados por um compromisso compartilhado com espaçamento generoso, autoridade tipográfica e uma paleta quase monocromática onde a cor é usada cirurgicamente, nunca de forma decorativa. Cada elemento comunica confiança através da redução: a ausência de ornamento *é* o ornamento. O ritmo visual espelha o produto que representa — potência silenciosa, controle sem esforço e atenção meticulosa aos detalhes.
+
+**Palavras-chave:** `luxo-monocromático` · `minimalismo-de-precisão` · `editorial-automotivo` · `superfície-dual` · `confiança-silenciosa` · `elegância-engenheirada`
+
+---
+
+## 2. Sistema de Cores
+
+### 2.1 Cores Primitivas — Escala Neutra
+
+A base é uma rampa neutra estendida que alterna entre subtons frios e quentes dependendo do modo de superfície. O tema claro tende ao cinza frio; o tema escuro tende ao carvão quente.
+
+| Token | Nome | HEX | Uso |
+|---|---|---|---|
+| `neutral-0` | Branco Puro | `#FFFFFF` | Fundos claros, superfícies de cards |
+| `neutral-50` | Neve | `#FAFAFA` | Fundos claros alternados |
+| `neutral-100` | Névoa | `#EDF0F2` | Fundos de seção, divisores (claro) |
+| `neutral-200` | Prata Fosco | `#D9DDE1` | Bordas, estados desabilitados (claro) |
+| `neutral-300` | Cinza Frio | `#C8D1D9` | Elementos de UI sutis, fundo de tags |
+| `neutral-400` | Pedra | `#6E6E6E` | Texto placeholder, ícones atenuados |
+| `neutral-500` | Grafite | `#4A4A4A` | Texto secundário (claro), ícones |
+| `neutral-600` | Carvão | `#3D3D3D` | Texto primário (modo claro) |
+| `neutral-700` | Aço Escuro | `#2C2C2C` | Superfícies de cards (modo escuro) |
+| `neutral-800` | Obsidiana | `#1A1A1A` | Fundo primário (modo escuro) |
+| `neutral-900` | Vazio | `#111111` | Fundos profundos, overlays |
+| `neutral-950` | Preto Verdadeiro | `#080808` | Seções hero, áreas imersivas |
+
+### 2.2 Cores Semânticas
+
+A cor é intencionalmente escassa. O sistema depende do contraste de luminância, e não de matiz, para estabelecer hierarquia. A cor de destaque aparece apenas em pontos decisivos de interação.
+
+| Token | Nome | HEX | Função |
+|---|---|---|---|
+| `color-primary` | Preto Obsidiana | `#1A1A1A` | Ações primárias no modo claro, ênfase de texto |
+| `color-primary-inverse` | Branco Puro | `#FFFFFF` | Ações primárias no modo escuro, texto inverso |
+| `color-secondary` | Cinza Pedra | `#6E6E6E` | Ações secundárias, metadados, texto de apoio |
+| `color-accent` | Âmbar Sinal | `#D4A843` | Momentos de destaque — estados ativos, selos premium, micro-acentos |
+| `color-surface-light` | Névoa | `#EDF0F2` | Cards e containers em fundos claros |
+| `color-surface-dark` | Aço Escuro | `#2C2C2C` | Cards e containers em fundos escuros |
+| `color-success` | Verde Sálvia | `#4A7C59` | Confirmação, status disponível |
+| `color-warning` | Âmbar Quente | `#C4952A` | Estados de atenção, pendente |
+| `color-error` | Carmim Suave | `#B34040` | Estados de erro, ações destrutivas |
+| `color-info` | Ardósia Fria | `#5A7D99` | Informativo, feedback neutro |
+
+### 2.3 Regras de Uso de Cores
+
+- **Modo claro**: Fundos quase brancos (`neutral-0` a `neutral-100`), texto escuro (`neutral-600` a `neutral-800`), botões primários pretos.
+- **Modo escuro**: Fundos profundos (`neutral-800` a `neutral-950`), texto branco/claro, superfícies de cards escuras semelhantes a vidro com bordas sutis.
+- **Destaque** (`âmbar-sinal`) é usado com parcimônia — rótulos, indicadores ativos, micro-detalhes de hover. Nunca preenche grandes áreas.
+- **Sem gradientes** em superfícies de UI. Gradientes aparecem apenas em sobreposições fotográficas (escurecimento transparente em imagens hero).
+
+---
+
+## 3. Tipografia
+
+### 3.1 Direção Tipográfica
+
+O sistema tipográfico é construído sobre uma família **sans-serif geométrica ou grotesk moderna**. Títulos se impõem com escala grande e tracking apertado. O texto de corpo prioriza legibilidade com um ritmo confortável e aberto. O contraste entre os tamanhos de display e corpo é extremo — essa tensão cria a qualidade editorial, semelhante a uma revista.
+
+### 3.2 Escala Tipográfica
+
+| Nível | Tamanho (rem) | Peso | Tracking | Altura da Linha | Uso |
+|---|---|---|---|---|---|
+| `display` | 4.5 – 6rem | 700 – 800 | -0.03em | 0.9 – 1.0 | Declarações hero, impacto de palavra única |
+| `h1` | 2.5 – 3rem | 600 – 700 | -0.02em | 1.1 | Títulos de página, cabeçalhos de seção |
+| `h2` | 1.75 – 2rem | 600 | -0.015em | 1.2 | Cabeçalhos de subseção |
+| `h3` | 1.25 – 1.5rem | 500 – 600 | -0.01em | 1.3 | Títulos de cards, nomes de recursos |
+| `body-lg` | 1.125rem | 400 | 0 | 1.6 | Parágrafos introdutórios, descrições |
+| `body` | 1rem | 400 | 0 | 1.6 | Texto de corpo principal |
+| `body-sm` | 0.875rem | 400 | 0.005em | 1.5 | Informações secundárias, metadados |
+| `caption` | 0.75rem | 400 – 500 | 0.02em | 1.4 | Rótulos, tags, timestamps |
+| `overline` | 0.6875rem | 500 – 600 | 0.08em | 1.3 | Rótulos de categoria, marcadores em maiúsculas |
+
+### 3.3 Regras Tipográficas
+
+- **Display e H1** usam tracking negativo apertado para densidade e impacto visual.
+- **Overline/Caption** usam tracking positivo amplo e frequentemente aparecem em maiúsculas — criando contraste com os títulos apertados.
+- **Prefixos numéricos** (`01`, `02`, `03`) em recursos/passos usam figuras monoespaçadas ou tabulares e aparecem no tamanho `caption` ou `body-sm` em `neutral-400`.
+- **Distribuição de pesos** favorece médio (500) e semibold (600). Bold (700+) é reservado para texto display. Regular (400) é usado apenas para texto de corpo.
+
+### 3.4 Stacks de Fontes Recomendados
+
+```css
+--font-display: 'Inter', 'Outfit', 'SF Pro Display', system-ui, sans-serif;
+--font-body: 'Inter', 'SF Pro Text', system-ui, sans-serif;
+--font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+```
+
+---
+
+## 4. Espaçamento e Layout
+
+### 4.1 Escala de Espaçamento
+
+O sistema segue uma **unidade base de 4px** rigorosa com um grid espacial de 8pt. Todos os valores de espaçamento são múltiplos de 4.
+
+| Token | Valor | Uso |
+|---|---|---|
+| `space-1` | 4px | Espaços internos apertados, micro-espaço ícone-texto |
+| `space-2` | 8px | Padding de tags, espaçamentos compactos entre componentes |
+| `space-3` | 12px | Espaçamento de elementos pequenos, padding interno de cards |
+| `space-4` | 16px | Padding padrão de componentes, espaçamento de itens de lista |
+| `space-5` | 20px | Referência de altura de campos de input |
+| `space-6` | 24px | Padding de cards, espaçamento de grupos |
+| `space-8` | 32px | Sub-espaçamento de seções, padding maior de cards |
+| `space-10` | 40px | Gutters de colunas, espaçamentos médios entre seções |
+| `space-12` | 48px | Padding de seção (mobile) |
+| `space-16` | 64px | Padding de seção (tablet) |
+| `space-20` | 80px | Padding de seção (desktop) |
+| `space-24` | 96px | Separadores de seções grandes |
+| `space-32` | 128px | Respiro vertical de hero/footer |
+
+### 4.2 Sistema de Grid
+
+| Propriedade | Valor |
+|---|---|
+| **Colunas** | 12 (desktop), 8 (tablet), 4 (mobile) |
+| **Gutter** | 24px (desktop), 20px (tablet), 16px (mobile) |
+| **Margem** | 64px (desktop), 40px (tablet), 20px (mobile) |
+| **Largura máxima do conteúdo** | 1280px – 1440px |
+| **Alinhamento** | Ancorado ao centro, conteúdo alinhado à esquerda |
+
+### 4.3 Densidade de Layout
+
+- **Desktop**: Espaçoso — espaço em branco generoso entre seções cria uma cadência semelhante a uma galeria.
+- **Tablet**: Equilibrado — o conteúdo preenche mais espaço horizontal, cards empilham em 2 colunas.
+- **Mobile**: Compacto mas respirável — layout de coluna única, imagens full-bleed, padding de seção reduzido.
+
+---
+
+## 5. Formas e Linguagem de UI
+
+### 5.1 Escala de Border Radius
+
+| Token | Valor | Uso |
+|---|---|---|
+| `radius-none` | 0px | Imagens display, seções hero |
+| `radius-sm` | 4px | Inputs, controles de UI pequenos |
+| `radius-md` | 8px | Tags, badges, cards pequenos |
+| `radius-lg` | 12px | Cards padrão, containers |
+| `radius-xl` | 16px | Cards de destaque, painéis elevados |
+| `radius-2xl` | 20px – 24px | Cards grandes, janelas modais, painéis do modo escuro |
+| `radius-pill` | 999px | Botões (primário e secundário), chips de filtro, pills de navegação |
+
+### 5.2 Características de Componentes
+
+| Elemento | Estilo |
+|---|---|
+| **Botões Primários** | Forma pill (`radius-pill`), preenchimento sólido (preto no claro / branco no escuro), padrão ícone-seta à direita |
+| **Botões Secundários** | Forma pill, contornados com borda de 1px, preenchimento transparente |
+| **Cards** | Cantos arredondados (`radius-lg` a `radius-2xl`), sem borda visível no modo claro, borda sutil de 1px `rgba(255,255,255,0.08)` no modo escuro |
+| **Tags/Badges** | Formas pill pequenas (`radius-md` a `radius-pill`), preenchimento atenuado, texto `caption` |
+| **Navegação** | Barra horizontal, indicador ativo em forma pill, itens somente texto |
+| **Campos de Input** | Arredondados (`radius-sm` a `radius-md`), borda mínima, estados de foco claros |
+| **Modais/Painéis** | Cantos bem arredondados (`radius-2xl`), superfície elevada |
+
+### 5.3 Iconografia
+
+- **Estilo**: Contornados (outlined), stroke de 1.5px, construção geométrica.
+- **Tamanho**: 16px (inline), 20px (padrão), 24px (destaque).
+- **Ícones de seta** são os sinalizadores interativos primários — usados dentro de containers circulares ou inline com texto.
+
+---
+
+## 6. Detalhes Visuais
+
+### 6.1 Sombras
+
+| Token | Valor | Uso |
+|---|---|---|
+| `shadow-none` | `none` | Estado padrão para a maioria dos elementos |
+| `shadow-sm` | `0 1px 2px rgba(0,0,0,0.04)` | Elevação sutil de card (modo claro) |
+| `shadow-md` | `0 4px 12px rgba(0,0,0,0.06)` | Estados de hover, elementos flutuantes (claro) |
+| `shadow-lg` | `0 8px 32px rgba(0,0,0,0.10)` | Modais, popovers (modo claro) |
+| `shadow-glow` | `0 0 40px rgba(255,255,255,0.04)` | Luminância sutil de cards (modo escuro) |
+
+> [!NOTE]
+> O tema claro é praticamente livre de sombras — a hierarquia é alcançada através de mudanças na cor de fundo em vez de elevação. O tema escuro utiliza brilhos internos sutis e luminância de borda em vez de drop shadows.
+
+### 6.2 Bordas
+
+| Contexto | Estilo |
+|---|---|
+| **Cards modo claro** | Sem borda visível ou `1px solid neutral-200` |
+| **Cards modo escuro** | `1px solid rgba(255,255,255,0.06–0.10)` |
+| **Divisores** | `1px solid neutral-200` (claro) / `1px solid rgba(255,255,255,0.06)` (escuro) |
+| **Foco interativo** | `2px solid neutral-600` (claro) / `2px solid neutral-200` (escuro) |
+
+### 6.3 Efeitos Visuais
+
+| Efeito | Uso |
+|---|---|
+| **Glassmorfismo** | Overlays e painéis de especificação do modo escuro: `backdrop-filter: blur(24px)` com preenchimento escuro semi-transparente `rgba(20,20,20,0.75)` |
+| **Sobreposições de imagem** | Gradiente linear de `transparent` para `neutral-950` em imagens hero/detalhe |
+| **Textura de ruído** | Nenhuma — superfícies são limpas |
+| **Preenchimentos em gradiente** | Não usado em estrutura de UI; apenas sobreposições fotográficas |
+
+---
+
+## 7. Contraste e Acessibilidade
+
+### 7.1 Estratégia de Contraste
+
+| Contexto | Abordagem |
+|---|---|
+| **Modo claro** | Alto contraste — texto escuro (`neutral-600` – `neutral-800`) em superfícies brancas/quase brancas. Proporção mínima de 7:1 para texto de corpo. |
+| **Modo escuro** | Contraste médio-alto — texto branco/claro em superfícies profundas. Texto primário em `neutral-0`, secundário em `neutral-300`. Proporção mínima de 4.5:1. |
+| **Uso de destaque** | `âmbar-sinal` sempre aparece contra superfícies escuras onde atinge 4.5:1+. Nunca usado como cor de texto em fundos claros. |
+
+### 7.2 Lógica de Hierarquia
+
+A atenção é guiada através de **quatro camadas**:
+
+1. **Escala** — O texto display domina o viewport, ancorando a atenção.
+2. **Peso** — Títulos semibold, corpo regular cria caminhos de leitura claros.
+3. **Luminância** — Elementos brilhantes em superfícies escuras (e vice-versa) criam pontos focais.
+4. **Isolamento** — Espaço em branco generoso ao redor de elementos-chave lhes confere gravidade visual.
+
+### 7.3 Regras de Acessibilidade
+
+- Todos os elementos interativos devem ter uma área mínima de toque de **44×44px**.
+- Indicadores de foco são sempre visíveis — nunca depender apenas de cor.
+- O contraste de texto atende ao **WCAG 2.1 AA** no mínimo; texto display almeja **AAA**.
+- Tags e badges com fundos coloridos incluem contraste suficiente para seu texto.
+
+---
+
+## 8. Movimento e Interação *(Diretrizes)*
+
+| Propriedade | Valor |
+|---|---|
+| **Duração (micro)** | 150ms — estados de botão, transições de ícone |
+| **Duração (padrão)** | 250ms – 350ms — hovers de card, revelações |
+| **Duração (macro)** | 500ms – 800ms — transições de página, animações hero |
+| **Easing (entrada)** | `cubic-bezier(0.25, 0.1, 0.25, 1.0)` — desaceleração suave |
+| **Easing (saída)** | `cubic-bezier(0.4, 0.0, 1, 1)` — saída rápida |
+| **Easing (ênfase)** | `cubic-bezier(0.4, 0.0, 0.2, 1)` — sensação de mola ágil |
+
+**Padrões de interação**:
+- Cards: elevação sutil `translateY(-4px)` + `shadow-md` no hover.
+- Botões: mudança de opacidade do fundo (sem mudança de escala).
+- Imagens: zoom lento `scale(1.03)` no hover dentro de container com máscara.
+- Scroll de página: conteúdo aparece com `translateY(20px)` escalonado (staggered).
+
+---
+
+## 9. Resumo de Design Tokens (CSS Custom Properties)
+
+```css
+:root {
+  /* ── Escala Neutra ── */
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-50: #FAFAFA;
+  --color-neutral-100: #EDF0F2;
+  --color-neutral-200: #D9DDE1;
+  --color-neutral-300: #C8D1D9;
+  --color-neutral-400: #6E6E6E;
+  --color-neutral-500: #4A4A4A;
+  --color-neutral-600: #3D3D3D;
+  --color-neutral-700: #2C2C2C;
+  --color-neutral-800: #1A1A1A;
+  --color-neutral-900: #111111;
+  --color-neutral-950: #080808;
+
+  /* ── Semânticas ── */
+  --color-primary: #1A1A1A;
+  --color-primary-inverse: #FFFFFF;
+  --color-secondary: #6E6E6E;
+  --color-accent: #D4A843;
+  --color-surface-light: #EDF0F2;
+  --color-surface-dark: #2C2C2C;
+  --color-success: #4A7C59;
+  --color-warning: #C4952A;
+  --color-error: #B34040;
+  --color-info: #5A7D99;
+
+  /* ── Tipografia ── */
+  --font-display: 'Inter', 'Outfit', 'SF Pro Display', system-ui, sans-serif;
+  --font-body: 'Inter', 'SF Pro Text', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  --text-display: 4.5rem;
+  --text-h1: 2.5rem;
+  --text-h2: 1.75rem;
+  --text-h3: 1.25rem;
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-overline: 0.6875rem;
+
+  /* ── Espaçamento ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ── Border Radius ── */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-pill: 999px;
+
+  /* ── Sombras ── */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --shadow-glow: 0 0 40px rgba(255, 255, 255, 0.04);
+
+  /* ── Movimento ── */
+  --duration-micro: 150ms;
+  --duration-standard: 300ms;
+  --duration-macro: 600ms;
+  --ease-enter: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --ease-exit: cubic-bezier(0.4, 0.0, 1, 1);
+  --ease-emphasis: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* ── Layout ── */
+  --grid-columns: 12;
+  --grid-gutter: 24px;
+  --grid-margin: 64px;
+  --content-max-width: 1440px;
+}
+
+/* ── Sobrescritas do Modo Escuro ── */
+[data-theme="dark"] {
+  --color-primary: #FFFFFF;
+  --color-primary-inverse: #1A1A1A;
+  --color-secondary: #C8D1D9;
+  --color-surface-light: #2C2C2C;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.20);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.30);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.40);
+}
+```
+
+---
+
+> [!IMPORTANT]
+> Este design system é uma **síntese** — não uma cópia — das referências fornecidas. Todos os tokens, valores e regras foram abstraídos a partir de padrões recorrentes em múltiplas fontes e unificados em um único sistema original, pronto para produção. Nenhuma interface, layout ou componente específico foi replicado.
